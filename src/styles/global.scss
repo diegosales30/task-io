@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%; //converte o tamanho da font px 15
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%; //converte o tamanho da font px 14
+  }
+}
+
+body {
+  background-color: #f2f6fc;
+}
+
+body,
+input,
+textarea,
+select,
+button {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #333;
+}
+
+button {
+  cursor: pointer;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
