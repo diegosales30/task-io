@@ -1,14 +1,61 @@
-.title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: rgb(233, 19, 19);
-  text-align: center;
-  margin-bottom: 1rem;
-  padding: 5px;
-  span {
+.contentContainer {
+  max-width: 1120px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  background-color: #3ad586;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 8rem;
+}
+.imgHome {
+  width: 300px;
+}
+
+.callToAction {
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  p {
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
     font-size: 1.5rem;
-    font-weight: 400;
-    color: rgb(19, 23, 233);
-    padding: 5px;
+    span {
+      font-size: 1.5rem;
+      color: #141a29;
+      font-weight: bold;
+    }
+  }
+}
+
+.doadores {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+  min-width: 290px;
+  img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    margin-top: 10px;
+
+    + img {
+      margin-left: 10px;
+    }
+  }
+  img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
   }
 }
