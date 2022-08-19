@@ -2,6 +2,7 @@ import Head from "next/head";
 import style from "./styles.module.scss";
 import { RiAddCircleFill } from "react-icons/ri";
 import { FiCalendar, FiEdit2, FiTrash, FiClock } from "react-icons/fi";
+import { SupportButton } from "../../components/SupportButton/index";
 
 export default function Tasks() {
   return (
@@ -56,6 +57,8 @@ export default function Tasks() {
           <time>Ultima doação foi a 5 dias</time>
         </div>
       </div>
+
+      <SupportButton />
     </div>
   );
 }
