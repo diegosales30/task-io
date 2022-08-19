@@ -1,0 +1,116 @@
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+
+  padding: 2rem;
+  background-color: #141a29;
+  border-radius: 6px;
+
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    input {
+      width: 90%;
+      height: 50px;
+      background-color: #20212c;
+      border: 1px solid #424242;
+      padding: 3px 10px;
+      color: aliceblue;
+    }
+
+    button {
+      margin-left: 10px;
+      width: 8%;
+      height: 50px;
+      border: 0;
+      background-color: transparent;
+    }
+  }
+  h1 {
+    color: aliceblue;
+    margin-top: 1.8rem;
+  }
+}
+
+.taskList {
+  background-color: #20212c;
+  margin: 1rem 0;
+  padding: 0.7rem;
+  border-radius: 6px;
+
+  p {
+    cursor: pointer;
+    color: aliceblue;
+    font-size: 1rem;
+    line-height: 150%;
+  }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 1rem;
+
+    div {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      time {
+        color: #1fd486;
+
+        margin-left: 5px;
+        margin-right: 1rem;
+      }
+    }
+    button {
+      background: transparent;
+      border: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & + button {
+        margin-left: 15px;
+      }
+
+      span {
+        margin-left: 5px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      span:hover {
+        filter: brightness(0.8);
+      }
+    }
+  }
+}
+
+.vipContainer {
+  max-width: 1120px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #20212c;
+  border-radius: 6px;
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+  }
+  div {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+
+    time {
+      color: #fff;
+      font-size: 1.1rem;
+      padding: 10px;
+    }
+  }
+}

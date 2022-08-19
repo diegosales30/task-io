@@ -1,9 +1,10 @@
 .contentContainer {
   max-width: 1120px;
   width: 100%;
+  height: 100%;
   margin: 0 auto;
   padding: 0 2rem;
-  background-color: #3ad586;
+  background-color: #1fd486;
 
   display: flex;
   align-items: center;
@@ -17,7 +18,7 @@
 
 .callToAction {
   h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
     margin-bottom: 1rem;
@@ -30,7 +31,7 @@
     font-size: 1.5rem;
     span {
       font-size: 1.5rem;
-      color: #141a29;
+      color: #20212c;
       font-weight: bold;
     }
   }
@@ -38,6 +39,7 @@
 
 .doadores {
   display: flex;
+  padding: 2rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
