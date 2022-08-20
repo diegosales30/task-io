@@ -2,6 +2,8 @@ import { useState, FormEvent } from "react";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/client";
+import { format } from "date-fns";
+import Link from "next/link";
 
 import style from "./styles.module.scss";
 import { RiAddCircleFill } from "react-icons/ri";
@@ -10,15 +12,25 @@ import { SupportButton } from "../../components/SupportButton/index";
 
 import firebase from "../../services/firebaseConnection";
 
+type TasksList = {
+  id: string;
+  created: string | Date;
+  createdFormat: string;
+  tarefa: string;
+  userId: string;
+  nome: string;
+};
 interface TasksProps {
   user: {
     nome: string;
     id: string;
   };
+  data: string;
 }
 
-export default function Tasks({ user }: TasksProps) {
+export default function Tasks({ user, data }: TasksProps) {
   const [tasks, setTasks] = useState("");
+  const [newTask, setNewTask] = useState<TasksList[]>(JSON.parse(data));
 
   async function handleAddTask(event: FormEvent) {
     event.preventDefault();
@@ -36,8 +48,18 @@ export default function Tasks({ user }: TasksProps) {
         userId: user.id,
         nome: user.nome,
       })
-      .then(() => {
+      .then((doc) => {
         console.log("Tarefa adicionada com sucesso");
+        let data = {
+          id: doc.id,
+          created: new Date(),
+          createdFormat: format(new Date(), "dd MMMM yyyy"),
+          tarefa: tasks,
+          userId: user.id,
+          nome: user.nome,
+        };
+        setNewTask([...newTask, data]);
+        setTasks("");
       })
       .catch((error) => {
         console.log("erro ao add tarefa ", error);
@@ -69,29 +91,36 @@ export default function Tasks({ user }: TasksProps) {
           </button>
         </form>
 
-        <h1>Voce tem 2 tarefas</h1>
+        <h1>
+          Voce tem {newTask.length}{" "}
+          {newTask.length === 1 ? "tarefa" : "tarefas"}
+        </h1>
 
         <section>
-          <article className={style.taskList}>
-            <p>Aprender a criar projetos em Nextjs e fire base como back</p>
-            <div className={style.actions}>
-              <div>
+          {newTask.map((task, index) => (
+            <article key={index} className={style.taskList}>
+              <Link href={`/tasks/${task.id}`}>
+                <p>{task.tarefa}</p>
+              </Link>
+              <div className={style.actions}>
                 <div>
-                  <FiCalendar size={20} color="#1fd486" />
-                  <time>17 junho 2021</time>
+                  <div>
+                    <FiCalendar size={20} color="#1fd486" />
+                    <time>{task.createdFormat}</time>
+                  </div>
+                  <button>
+                    <FiEdit2 size={20} color="#1fd486" />
+                    <span>Editar</span>
+                  </button>
                 </div>
+
                 <button>
-                  <FiEdit2 size={20} color="#1fd486" />
-                  <span>Editar</span>
+                  <FiTrash size={20} color="#ff3638" />
+                  <span>Excluir</span>
                 </button>
               </div>
-
-              <button>
-                <FiTrash size={20} color="#ff3638" />
-                <span>Excluir</span>
-              </button>
-            </div>
-          </article>
+            </article>
+          ))}
         </section>
       </main>
       <div className={style.vipContainer}>
@@ -120,6 +149,23 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     };
   }
 
+  const allTasks = await firebase
+    .firestore()
+    .collection("tarefas")
+    .where("userId", "==", session?.id) //somente para o user logado com o mesmo id
+    .orderBy("created", "asc")
+    .get();
+
+  const data = JSON.stringify(
+    allTasks.docs.map((doc) => {
+      return {
+        id: doc.id,
+        createdFormat: format(doc.data().created.toDate(), "dd MMMM yyyy"),
+        ...doc.data(),
+      };
+    })
+  );
+
   const user = {
     nome: session?.user.name,
     id: session?.id,
@@ -128,6 +174,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   return {
     props: {
       user,
+      data,
     },
   };
 };

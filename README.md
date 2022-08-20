@@ -27,6 +27,10 @@ yarn add @types/next-auth@^3.15.0 -D
 
 yarn add firebase@^8.8.1
 
+yarn add date-fns
+
+---
+
 // import { NextApiRequest, NextApiResponse } from "next";
 
 // export default (req: NextApiRequest, res: NextApiResponse) => {
