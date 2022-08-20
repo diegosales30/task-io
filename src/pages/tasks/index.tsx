@@ -1,4 +1,7 @@
 import Head from "next/head";
+import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/client";
+
 import style from "./styles.module.scss";
 import { RiAddCircleFill } from "react-icons/ri";
 import { FiCalendar, FiEdit2, FiTrash, FiClock } from "react-icons/fi";
@@ -62,3 +65,22 @@ export default function Tasks() {
     </div>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (!session?.id) {
+    //se o user não estiver logado, redireciona para a página de login
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  console.log(session.user);
+  return {
+    props: {},
+  };
+};

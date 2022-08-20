@@ -1,4 +1,5 @@
 import Head from "../../node_modules/next/head";
+import { GetStaticProps } from "next";
 
 import style from "../styles/styles.module.scss";
 
@@ -46,3 +47,10 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: {},
+    revalidate: 60 * 60, // atualiza a pagina a cada hora,  60 segundos vezes 60 segundos
+  };
+};

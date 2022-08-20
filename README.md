@@ -10,6 +10,8 @@ npm run dev
 yarn dev
 ```
 
+yarn add next para add nodemodules
+
 yarn add typescript @types/react @types/node -D
 
 yarn add --dev typescript @types/react @types/node
