@@ -1,3 +1,4 @@
+import { useState, FormEvent } from "react";
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/client";
@@ -7,7 +8,42 @@ import { RiAddCircleFill } from "react-icons/ri";
 import { FiCalendar, FiEdit2, FiTrash, FiClock } from "react-icons/fi";
 import { SupportButton } from "../../components/SupportButton/index";
 
-export default function Tasks() {
+import firebase from "../../services/firebaseConnection";
+
+interface TasksProps {
+  user: {
+    nome: string;
+    id: string;
+  };
+}
+
+export default function Tasks({ user }: TasksProps) {
+  const [tasks, setTasks] = useState("");
+
+  async function handleAddTask(event: FormEvent) {
+    event.preventDefault();
+    if (tasks === "") {
+      alert("Preencha o campo de tarefa");
+      return;
+    }
+
+    await firebase
+      .firestore()
+      .collection("tarefas")
+      .add({
+        created: new Date(),
+        tarefa: tasks,
+        userId: user.id,
+        nome: user.nome,
+      })
+      .then(() => {
+        console.log("Tarefa adicionada com sucesso");
+      })
+      .catch((error) => {
+        console.log("erro ao add tarefa ", error);
+      });
+  }
+
   return (
     <div
       style={{
@@ -21,8 +57,13 @@ export default function Tasks() {
         <title>Minhas tarefas - Tasks</title>
       </Head>
       <main className={style.container}>
-        <form>
-          <input type="text" placeholder="Nova tarefa" />
+        <form onSubmit={handleAddTask}>
+          <input
+            type="text"
+            placeholder="Nova tarefa"
+            value={tasks}
+            onChange={(e) => setTasks(e.target.value)}
+          />
           <button type="submit">
             <RiAddCircleFill size={25} color="#1fd486" />
           </button>
@@ -79,8 +120,14 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     };
   }
 
-  console.log(session.user);
+  const user = {
+    nome: session?.user.name,
+    id: session?.id,
+  };
+
   return {
-    props: {},
+    props: {
+      user,
+    },
   };
 };
