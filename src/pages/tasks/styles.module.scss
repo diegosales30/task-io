@@ -6,6 +6,26 @@
   background-color: #141a29;
   border-radius: 6px;
 
+  .warnTask {
+    color: #1fd486;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+
+    padding: 5px;
+
+    p {
+      margin-right: 10px;
+    }
+    button {
+      background-color: transparent;
+      display: flex;
+      border: none;
+    }
+  }
+
   form {
     display: flex;
     align-items: center;

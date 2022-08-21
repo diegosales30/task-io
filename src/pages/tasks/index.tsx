@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import style from "./styles.module.scss";
 import { RiAddCircleFill } from "react-icons/ri";
-import { FiCalendar, FiEdit2, FiTrash, FiClock } from "react-icons/fi";
+import { FiCalendar, FiEdit2, FiTrash, FiClock, FiX } from "react-icons/fi";
 import { SupportButton } from "../../components/SupportButton/index";
 
 import firebase from "../../services/firebaseConnection";
@@ -31,11 +31,32 @@ interface TasksProps {
 export default function Tasks({ user, data }: TasksProps) {
   const [tasks, setTasks] = useState("");
   const [newTask, setNewTask] = useState<TasksList[]>(JSON.parse(data));
+  const [taskEdit, setTaskEdit] = useState<TasksList | null>(null);
 
   async function handleAddTask(event: FormEvent) {
     event.preventDefault();
     if (tasks === "") {
       alert("Preencha o campo de tarefa");
+      return;
+    }
+
+    if (taskEdit) {
+      await firebase
+        .firestore()
+        .collection("tarefas")
+        .doc(taskEdit.id)
+        .update({
+          tarefa: tasks,
+        })
+        .then(() => {
+          let data = newTask;
+          let taskIndex = newTask.findIndex((task) => task.id === taskEdit.id);
+          data[taskIndex].tarefa = tasks;
+
+          setNewTask(data);
+          setTaskEdit(null);
+          setTasks("");
+        });
       return;
     }
 
@@ -81,6 +102,34 @@ export default function Tasks({ user, data }: TasksProps) {
       });
   }
 
+  async function handleEditTask(task: TasksList) {
+    console.log("task", task);
+    setTaskEdit(task);
+    setTasks(task.tarefa);
+
+    // firebase
+    //   .firestore()
+    //   .collection("tarefas")
+    //   .doc(id)
+    //   .update({
+    //     tarefa: tarefa,
+    //   })
+    //   .then(() => {
+    //     console.log("Tarefa editada com sucesso");
+    //     setNewTask(
+    //       newTask.map((task) => (task.id === id ? { ...task, tarefa } : task))
+    //     );
+    //   })
+    //   .catch((error) => {
+    //     console.log("erro ao editar tarefa ", error);
+    //   });
+  }
+
+  function handleCancelEdit() {
+    setTaskEdit(null);
+    setTasks("");
+  }
+
   return (
     <div
       style={{
@@ -93,6 +142,14 @@ export default function Tasks({ user, data }: TasksProps) {
         <title>Minhas tarefas - Tasks</title>
       </Head>
       <main className={style.container}>
+        {taskEdit && (
+          <span className={style.warnTask}>
+            <p>cancelar edição? </p>
+            <button onClick={handleCancelEdit}>
+              <FiX size={"1.5rem"} color="#ff3638" />
+            </button>
+          </span>
+        )}
         <form onSubmit={handleAddTask}>
           <input
             type="text"
@@ -122,18 +179,14 @@ export default function Tasks({ user, data }: TasksProps) {
                     <FiCalendar size={"0.9rem"} color="#1fd486" />
                     <time>{task.createdFormat}</time>
                   </div>
-                  <button>
+                  <button onClick={() => handleEditTask(task)}>
                     <FiEdit2 size={"0.9rem"} color="#1fd486" />
                     <span>Editar</span>
                   </button>
                 </div>
 
-                <button>
-                  <FiTrash
-                    onClick={() => handleDeleteTask(task.id)}
-                    size={"1.2rem"}
-                    color="#ff3638"
-                  />
+                <button onClick={() => handleDeleteTask(task.id)}>
+                  <FiTrash size={"1.2rem"} color="#ff3638" />
                   {/* <span>Excluir</span> */}
                 </button>
               </div>
