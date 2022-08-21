@@ -23,25 +23,28 @@ export default function Home() {
           alt="home"
         />
         <section className={style.callToAction}>
-          <h1>Organize seu dia com seu gerenciador de tarefas</h1>
-          <p>
-            <span>Gratis</span> e online
-          </p>
+          <h1>O melhor gerenciador de tarefas para organizar seu dia</h1>
+          <span>
+            <p>100% Online e Gratis</p>
+          </span>
         </section>
 
-        <div className={style.doadores}>
-          <img
-            src="https://avatars.githubusercontent.com/u/95250284?v=4"
-            alt="user1"
-          />
-          <img
-            src="https://avatars.githubusercontent.com/u/95250284?v=4"
-            alt="user1"
-          />
-          <img
-            src="https://avatars.githubusercontent.com/u/95250284?v=4"
-            alt="user1"
-          />
+        <div className={style.apoiadores}>
+          <p>Apoiadores: </p>
+          <div className={style.doadores}>
+            <img
+              src="https://avatars.githubusercontent.com/u/95250284?v=4"
+              alt="user1"
+            />
+            <img
+              src="https://avatars.githubusercontent.com/u/95250284?v=4"
+              alt="user1"
+            />
+            <img
+              src="https://avatars.githubusercontent.com/u/95250284?v=4"
+              alt="user1"
+            />
+          </div>
         </div>
       </main>
     </div>

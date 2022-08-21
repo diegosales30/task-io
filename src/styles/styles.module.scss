@@ -23,34 +23,48 @@
     color: #fff;
     margin-bottom: 1rem;
     text-align: center;
+    text-shadow: #20212cbd 1px 1px 5px;
   }
-  p {
-    color: #fff;
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    span {
+  span {
+    p {
+      color: #fff;
+      text-align: center;
+      margin-top: 1rem;
       font-size: 1.5rem;
-      color: #20212c;
       font-weight: bold;
+      text-shadow: #20212cbd 1px 1px 5px;
     }
   }
 }
 
+.apoiadores {
+  display: flex;
+  flex-direction: column;
+
+  p {
+    color: #fff;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: #20212cbd 1px 1px 5px;
+  }
+}
 .doadores {
   display: flex;
-  padding: 2rem;
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 1.5rem;
   max-width: 700px;
   min-width: 290px;
   img {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     transition: all 0.2s ease-in-out;
     margin-top: 10px;
+    box-shadow: #20212cdb 1px 1px 5px;
 
     + img {
       margin-left: 10px;
