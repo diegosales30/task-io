@@ -28,12 +28,12 @@
       background-color: transparent;
     }
   }
-  h1 {
+  h3 {
     color: aliceblue;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
   }
   section {
-    height: 500px;
+    height: 480px;
     overflow-y: scroll;
   }
 }
@@ -48,7 +48,7 @@
   p {
     cursor: pointer;
     color: aliceblue;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 150%;
   }
 
@@ -67,9 +67,9 @@
 
       time {
         color: #1fd486;
-
+        font-size: 0.9rem;
         margin-left: 5px;
-        margin-right: 1rem;
+        margin-right: 0.9rem;
       }
     }
     button {
@@ -87,6 +87,7 @@
         margin-left: 5px;
         color: #fff;
         cursor: pointer;
+        font-size: 0.9rem;
       }
 
       span:hover {
@@ -105,7 +106,7 @@
 
   h3 {
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
   div {
     margin-top: 1rem;
@@ -114,7 +115,7 @@
 
     time {
       color: #fff;
-      font-size: 1.1rem;
+      font-size: 0.9rem;
       padding: 10px;
     }
   }

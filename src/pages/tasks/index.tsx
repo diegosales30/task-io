@@ -69,7 +69,6 @@ export default function Tasks({ user, data }: TasksProps) {
   return (
     <div
       style={{
-        backgroundColor: "#1fd486",
         height: "100vh",
         width: "100vw",
         padding: "20px",
@@ -91,10 +90,10 @@ export default function Tasks({ user, data }: TasksProps) {
           </button>
         </form>
 
-        <h1>
+        <h3>
           Voce tem {newTask.length}{" "}
           {newTask.length === 1 ? "tarefa" : "tarefas"}
-        </h1>
+        </h3>
 
         <section>
           {newTask.map((task, index) => (
@@ -105,18 +104,18 @@ export default function Tasks({ user, data }: TasksProps) {
               <div className={style.actions}>
                 <div>
                   <div>
-                    <FiCalendar size={20} color="#1fd486" />
+                    <FiCalendar size={"0.9rem"} color="#1fd486" />
                     <time>{task.createdFormat}</time>
                   </div>
                   <button>
-                    <FiEdit2 size={20} color="#1fd486" />
+                    <FiEdit2 size={"0.9rem"} color="#1fd486" />
                     <span>Editar</span>
                   </button>
                 </div>
 
                 <button>
-                  <FiTrash size={20} color="#ff3638" />
-                  <span>Excluir</span>
+                  <FiTrash size={"1.2rem"} color="#ff3638" />
+                  {/* <span>Excluir</span> */}
                 </button>
               </div>
             </article>
@@ -126,7 +125,7 @@ export default function Tasks({ user, data }: TasksProps) {
       <div className={style.vipContainer}>
         <h3>Obrigado por apoiar esse projeto</h3>
         <div>
-          <FiClock size={28} color="#1fd486" />
+          <FiClock size={"1rem"} color="#1fd486" />
           <time>Ultima doação foi a 5 dias</time>
         </div>
       </div>
