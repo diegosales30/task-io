@@ -66,6 +66,21 @@ export default function Tasks({ user, data }: TasksProps) {
       });
   }
 
+  async function handleDeleteTask(id: string) {
+    firebase
+      .firestore()
+      .collection("tarefas")
+      .doc(id)
+      .delete()
+      .then(() => {
+        console.log("Tarefa deletada com sucesso");
+        setNewTask(newTask.filter((task) => task.id !== id));
+      })
+      .catch((error) => {
+        console.log("erro ao deletar tarefa ", error);
+      });
+  }
+
   return (
     <div
       style={{
@@ -92,12 +107,12 @@ export default function Tasks({ user, data }: TasksProps) {
 
         <h3>
           Voce tem {newTask.length}{" "}
-          {newTask.length === 1 ? "tarefa" : "tarefas"}
+          {newTask.length === 1 ? "tarefa!" : "tarefas!"}
         </h3>
 
         <section>
-          {newTask.map((task, index) => (
-            <article key={index} className={style.taskList}>
+          {newTask.map((task) => (
+            <article key={task.id} className={style.taskList}>
               <Link href={`/tasks/${task.id}`}>
                 <p>{task.tarefa}</p>
               </Link>
@@ -114,7 +129,11 @@ export default function Tasks({ user, data }: TasksProps) {
                 </div>
 
                 <button>
-                  <FiTrash size={"1.2rem"} color="#ff3638" />
+                  <FiTrash
+                    onClick={() => handleDeleteTask(task.id)}
+                    size={"1.2rem"}
+                    color="#ff3638"
+                  />
                   {/* <span>Excluir</span> */}
                 </button>
               </div>
@@ -125,12 +144,14 @@ export default function Tasks({ user, data }: TasksProps) {
       <div className={style.vipContainer}>
         <h3>Obrigado por apoiar esse projeto</h3>
         <div>
-          <FiClock size={"1rem"} color="#1fd486" />
-          <time>Ultima doação foi a 5 dias</time>
+          <div>
+            <FiClock size={"1rem"} color="#1fd486" />
+            <time>Ultima doação foi a 5 dias</time>
+          </div>
+
+          <SupportButton />
         </div>
       </div>
-
-      <SupportButton />
     </div>
   );
 }
