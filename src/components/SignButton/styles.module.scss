@@ -1,3 +1,15 @@
+.containerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 1rem;
+    font-weight: lighter;
+    color: #fff;
+    margin-right: 10px;
+  }
+}
+
 .signButton {
   height: 2.5rem;
   border-radius: 3rem;
@@ -6,9 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1.5rem;
+
   color: #fff;
   transition: filter 0.2s;
+
   svg {
     width: 25px;
     height: 25px;
@@ -31,3 +44,21 @@
     margin-left: 1rem;
   }
 }
+
+// .reticencias {
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+
+//   display: -webkit-box;
+//   -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+// }
+// span {
+//   display: -webkit-box;
+//   -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+//   -webkit-box-orient: vertical;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+
+// }

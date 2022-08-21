@@ -103,26 +103,8 @@ export default function Tasks({ user, data }: TasksProps) {
   }
 
   async function handleEditTask(task: TasksList) {
-    console.log("task", task);
     setTaskEdit(task);
     setTasks(task.tarefa);
-
-    // firebase
-    //   .firestore()
-    //   .collection("tarefas")
-    //   .doc(id)
-    //   .update({
-    //     tarefa: tarefa,
-    //   })
-    //   .then(() => {
-    //     console.log("Tarefa editada com sucesso");
-    //     setNewTask(
-    //       newTask.map((task) => (task.id === id ? { ...task, tarefa } : task))
-    //     );
-    //   })
-    //   .catch((error) => {
-    //     console.log("erro ao editar tarefa ", error);
-    //   });
   }
 
   function handleCancelEdit() {
@@ -187,7 +169,6 @@ export default function Tasks({ user, data }: TasksProps) {
 
                 <button onClick={() => handleDeleteTask(task.id)}>
                   <FiTrash size={"1.2rem"} color="#ff3638" />
-                  {/* <span>Excluir</span> */}
                 </button>
               </div>
             </article>
