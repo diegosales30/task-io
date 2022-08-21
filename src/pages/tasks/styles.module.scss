@@ -18,11 +18,17 @@
 
     p {
       margin-right: 10px;
+      font-weight: bold;
     }
     button {
       background-color: transparent;
       display: flex;
       border: none;
+
+      :first-child {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
     }
   }
 
@@ -41,16 +47,19 @@
     }
 
     button {
-      margin-left: 10px;
-      width: 8%;
+      width: 5%;
       height: 50px;
       border: 0;
       background-color: transparent;
     }
   }
   h3 {
+    text-align: center;
     color: aliceblue;
     margin-top: 1rem;
+    span {
+      color: #1fd486;
+    }
   }
   section {
     height: 450px;

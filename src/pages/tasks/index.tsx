@@ -128,7 +128,7 @@ export default function Tasks({ user, data }: TasksProps) {
           <span className={style.warnTask}>
             <p>cancelar edição? </p>
             <button onClick={handleCancelEdit}>
-              <FiX size={"1.5rem"} color="#ff3638" />
+              <FiX color="#ff3638" />
             </button>
           </span>
         )}
@@ -145,7 +145,7 @@ export default function Tasks({ user, data }: TasksProps) {
         </form>
 
         <h3>
-          Voce tem {newTask.length}{" "}
+          Voce tem <span>{newTask.length}</span>{" "}
           {newTask.length === 1 ? "tarefa!" : "tarefas!"}
         </h3>
 
