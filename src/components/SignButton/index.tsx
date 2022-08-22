@@ -49,6 +49,13 @@ export function SignButton() {
       >
         <FaFacebook color="#2578e4" />
       </button>
+      {/* <button
+        type="button"
+        className={styles.signButton}
+        onClick={() => signIn("google")}
+      >
+        <FaFacebook color="#e41923" />
+      </button> */}
     </div>
   );
 }

@@ -117,6 +117,7 @@ export default function Tasks({ user, data }: TasksProps) {
       style={{
         height: "100vh",
         width: "100vw",
+        minWidth: "400px",
         padding: "20px",
       }}
     >
@@ -207,7 +208,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     .firestore()
     .collection("tarefas")
     .where("userId", "==", session?.id) //somente para o user logado com o mesmo id
-    .orderBy("created", "asc")
+    .orderBy("created", "desc")
     .get();
 
   const data = JSON.stringify(

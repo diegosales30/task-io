@@ -9,6 +9,8 @@ export default function Home() {
       style={{
         backgroundColor: "#1fd486",
         height: "100vh",
+        minHeight: "800px",
+        minWidth: "420px",
         width: "100vw",
       }}
     >
@@ -33,15 +35,11 @@ export default function Home() {
           <p>Apoiadores: </p>
           <div className={style.doadores}>
             <img
-              src="https://avatars.githubusercontent.com/u/95250284?v=4"
+              src="https://avatars.githubusercontent.com/u/29111363?v=4"
               alt="user1"
             />
             <img
-              src="https://avatars.githubusercontent.com/u/95250284?v=4"
-              alt="user1"
-            />
-            <img
-              src="https://avatars.githubusercontent.com/u/95250284?v=4"
+              src="https://avatars.githubusercontent.com/u/95226258?v=4"
               alt="user1"
             />
           </div>
