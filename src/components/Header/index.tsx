@@ -16,7 +16,7 @@ export function Header() {
             <a>Home</a>
           </Link>
           <Link href="/tasks">
-            <a>My Tasks</a>
+            <a>Anotações</a>
           </Link>
         </nav>
         <SignButton />

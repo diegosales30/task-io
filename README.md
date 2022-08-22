@@ -29,6 +29,8 @@ yarn add firebase@^8.8.1
 
 yarn add date-fns
 
+yarn add @paypal/react-paypal-js
+
 ---
 
 // import { NextApiRequest, NextApiResponse } from "next";

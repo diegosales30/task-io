@@ -1,17 +1,17 @@
 .contentContainer {
   max-width: 1120px;
   width: 100%;
-  height: 100%;
+
   margin: 0 auto;
   padding: 0 2rem;
   background-color: #1fd486;
-  height: calc(100vh - 5rem);
+  min-height: calc(100vh - 5rem);
 
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 8rem;
+  //padding: 8rem;
 }
 .imgHome {
   width: 300px;

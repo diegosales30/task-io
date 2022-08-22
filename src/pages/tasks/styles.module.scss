@@ -1,7 +1,18 @@
+.containerPrincipal {
+  width: "100vw";
+  max-width: "400px";
+
+  .containerButton {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
 .container {
   max-width: 1120px;
-  margin: 0 auto;
-
+  margin: auto;
+  margin-top: 10px;
   padding: 2rem;
   background-color: #141a29;
   border-radius: 6px;

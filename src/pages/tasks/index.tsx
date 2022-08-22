@@ -113,14 +113,7 @@ export default function Tasks({ user, data }: TasksProps) {
   }
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        minWidth: "400px",
-        padding: "20px",
-      }}
-    >
+    <div className={style.containerPrincipal}>
       <Head>
         <title>Minhas tarefas - Tasks</title>
       </Head>
@@ -183,9 +176,10 @@ export default function Tasks({ user, data }: TasksProps) {
             <FiClock size={"1rem"} color="#1fd486" />
             <time>Ultima doação foi a 5 dias</time>
           </div>
-
-          <SupportButton />
         </div>
+      </div>
+      <div className={style.containerButton}>
+        <SupportButton />
       </div>
     </div>
   );
@@ -221,9 +215,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     })
   );
 
+  //console.log(session?.vip);
+
   const user = {
     nome: session?.user.name,
     id: session?.id,
+    // vip: session?.vip,
+    // lastDonate: session?.lastDonate,
   };
 
   return {
