@@ -48,7 +48,8 @@ export const getServerSideProps: GetServerSideProps = async ({
   const { id } = params;
   const session = await getSession({ req });
 
-  if (!session?.id) {
+  //somente vips podem acessar details
+  if (!session?.vip) {
     return {
       redirect: {
         destination: "/tasks",

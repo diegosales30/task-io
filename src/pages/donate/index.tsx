@@ -26,7 +26,7 @@ export default function Donate({ user }: DonateProps) {
       .doc(user.id)
       .set({
         donate: true,
-        lasteDonate: new Date(),
+        lastDonate: new Date(),
         image: user.image,
       })
       .then(() => {
