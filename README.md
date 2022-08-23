@@ -6,7 +6,15 @@
 
 ----> https://meu-task.herokuapp.com/
 
+## Teste virar apoiador com email + senha
+
 ```
+clique na opção Apoiar para testar use este email
+email:  sb-em9ve20342235@personal.example.com
+senha:  senhadeteste1
+
+```
+
 dependencias
 
 yarn add typescript @types/react @types/node -D
@@ -27,4 +35,7 @@ yarn add date-fns
 yarn add @paypal/react-paypal-js
 
 ---
+
+```
+
 ```
