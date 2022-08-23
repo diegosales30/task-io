@@ -1,19 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Projeto básico desenvolvido em Nextjs + typescript + sass
 
-## Getting Started
+### Em desenvolvimento, sem mobile first ainda!!!
 
-First, run the development server:
+# Teste o projeto aqui
 
-```bash
-npm run dev
-# or
-yarn dev
+----> https://meu-task.herokuapp.com/
+
 ```
-
-yarn add next para add nodemodules
+dependencias
 
 yarn add typescript @types/react @types/node -D
-
 yarn add --dev typescript @types/react @types/node
 yarn add sass
 yarn add react-icons
@@ -22,7 +18,6 @@ nextAuth.js para trabalhar com autenticação
 yarn add next-auth@^3.26.1
 
 ADD OS TYPES
-
 yarn add @types/next-auth@^3.15.0 -D
 
 yarn add firebase@^8.8.1
@@ -32,24 +27,4 @@ yarn add date-fns
 yarn add @paypal/react-paypal-js
 
 ---
-
-// import { NextApiRequest, NextApiResponse } from "next";
-
-// export default (req: NextApiRequest, res: NextApiResponse) => {
-// const users = [
-// {
-// key: 1,
-// nome: "John Doe",
-// },
-// {
-// key: 2,
-// nome: "Jane Doe",
-// },
-// {
-// key: 3,
-// nome: "Joelma Doe",
-// },
-// ];
-
-// return res.json(users);
-// };
+```
