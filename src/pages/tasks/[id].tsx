@@ -74,8 +74,19 @@ export const getServerSideProps: GetServerSideProps = async ({
       };
 
       return JSON.stringify(data); //firebase nao retorna um Json, por isso transformo em Json em json
+    })
+    .catch(() => {
+      return {};
     });
 
+  if (Object.keys(data).length === 0) {
+    return {
+      redirect: {
+        destination: "/tasks",
+        permanent: false,
+      },
+    };
+  }
   return {
     props: {
       data,

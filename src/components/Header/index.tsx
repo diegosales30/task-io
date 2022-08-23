@@ -9,7 +9,7 @@ export function Header() {
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <Link href="/">
-          <img src="../images/logo.png" alt="logo" />
+          <Image width={45} height={45} src={logo} marginLeft={5} alt="logo" />
         </Link>
         <nav>
           <Link href="/">
