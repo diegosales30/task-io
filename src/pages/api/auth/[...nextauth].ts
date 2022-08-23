@@ -13,6 +13,7 @@ export default NextAuth({
     Providers.Facebook({
       clientId: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      scope: "read:user",
     }),
     Providers.Google({
       clientId: process.env.GOOGLE_CLIENT_ID,

@@ -42,13 +42,13 @@ export function SignButton() {
       >
         <FaGithub color="#fafdfc" />
       </button>
-      <button
+      {/* <button
         type="button"
         className={styles.signButton}
         onClick={() => signIn("facebook")}
       >
         <FaFacebook color="#2578e4" />
-      </button>
+      </button> */}
       {/* <button
         type="button"
         className={styles.signButton}
